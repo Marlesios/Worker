@@ -5,8 +5,8 @@ public class Worker {
 
 
 
-    private OnTaskDoneListener callback;
-    private OnTaskErrorListener errorCallback;
+    private final OnTaskDoneListener callback;
+    private final OnTaskErrorListener errorCallback;
 
     public Worker(OnTaskDoneListener callback, OnTaskErrorListener errorCallback) {
         this.callback = callback ;
@@ -17,7 +17,7 @@ public class Worker {
         for (int i = 0; i < 100; i++) {
             callback.onDone("Task " + i + " is done");
             if(i == 33){
-                errorCallback.onError("Task " + i + "is failed");
+                errorCallback.onError("Task " + i + " is failed");
             }
         }
     }
